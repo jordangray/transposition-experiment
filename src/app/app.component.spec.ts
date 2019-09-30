@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'transposition-experiment'`, () => {
+  it(`should have as title 'Transposition experiment'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('transposition-experiment');
+    expect(app.title).toEqual('Transposition experiment');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('transposition-experiment app is running!');
+    expect(compiled.querySelector('.title').textContent).toBe('Transposition experiment');
   });
 });
