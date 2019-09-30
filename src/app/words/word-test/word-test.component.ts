@@ -9,9 +9,13 @@ import * as _ from 'lodash';
 })
 export class WordTestComponent implements OnInit {
 
+  spelling: string;
   word: string;
   transposed: string;
   seen: string[] = [];
+
+  shownAt: number;
+  times: { [word: string]: number } = {};
 
   constructor(private dictionary: DictionaryService) { }
 
@@ -19,11 +23,32 @@ export class WordTestComponent implements OnInit {
     this.nextWord();
   }
 
+  testWord(spelling) {
+    if (spelling !== this.word) return;
+
+    this.nextWord();
+  }
+
   nextWord() {
+    const now = +new Date();
+
+    if (this.word) {
+      this.times[this.word] = now - this.shownAt;
+    }
+
+    this.spelling = '';
+
     this.word = this.dictionary.random(this.seen);
+
+    if (!this.word) {
+      console.log(this.times);
+      return;
+    }
+
     this.transposed = this.transpose(this.word);
 
     this.seen.push(this.word);
+    this.shownAt = now;
   }
 
   transpose(word: string, swap = _.random(1, word.length - 1)) {
