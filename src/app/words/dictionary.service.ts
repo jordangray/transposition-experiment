@@ -1,3 +1,4 @@
+import * as _ from 'lodash';
 import { Injectable } from '@angular/core';
 import { DICTIONARY } from './mock-dictionary';
 
@@ -8,7 +9,7 @@ export class DictionaryService {
 
   constructor() { }
 
-  getWords(): string[] {
-    return DICTIONARY;
+  random(exclude: string[] = []): string {
+    return _.sample(_.difference(DICTIONARY, exclude));
   }
 }

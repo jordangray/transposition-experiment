@@ -1,12 +1,13 @@
 .word-test {
 
-  &__word {
+  &__transposed {
     font-size: 3rem;
     margin: 2rem 1rem;
   }
 
   &__instructions {
     margin: 2rem 1rem;
+    font-size: 1.5rem;
   }
 
   &__spelling {

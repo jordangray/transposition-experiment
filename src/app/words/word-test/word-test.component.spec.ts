@@ -22,4 +22,27 @@ describe('WordTestComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should transpose', () => {
+    it('should transpose the first two characters', () => {
+      const word = 'word';
+      const transposed = component.transpose(word, 1);
+
+      expect(transposed).toBe('owrd');
+    });
+
+    it('should transpose the middle two characters', () => {
+      const word = 'word';
+      const transposed = component.transpose(word, 2);
+
+      expect(transposed).toBe('wrod');
+    });
+
+    it('should transpose the last two characters', () => {
+      const word = 'word';
+      const transposed = component.transpose(word, 3);
+
+      expect(transposed).toBe('wodr');
+    });
+  })
 });
