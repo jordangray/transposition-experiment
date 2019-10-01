@@ -1,1 +1,18 @@
-<p>results works!</p>
+<p>Test completed, results below:</p>
+
+<table *ngIf="participant">
+  <tr>
+    <th>Word</th>
+    <th>Transposed</th>
+    <th>Transposed at</th>
+    <th>Time spent</th>
+    <th>Skipped?</th>
+  </tr>
+  <tr *ngFor="let result of participant.results">
+    <td>{{result.word}}</td>
+    <td>{{result.transposed}}</td>
+    <td>{{result.transposedAt}}</td>
+    <td>{{result.timeSpent}}</td>
+    <td>{{result.skipped ? 'Yes' : 'No'}}</td>
+  </tr>
+</table>

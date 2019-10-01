@@ -69,12 +69,7 @@ export class WordTestComponent implements OnInit {
     const word = this.words.random(this.seen);
 
     if (!word) {
-      if (this.practice) {
-        this.router.navigate(['instructions', this.participant.id]);
-        return;
-      }
-
-      console.log('Results:', this.participant);
+      this.router.navigate([this.practice ? 'instructions' : 'results', this.participant.id]);
       return;
     }
 

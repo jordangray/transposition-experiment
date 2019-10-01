@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { WordsModule } from './words/words.module';
 import { RegisterModule } from './register/register.module';
 import { InstructionsModule } from './instructions/instructions.module';
+import { ResultsModule } from './participants/results/results.module';
 
 @NgModule({
   declarations: [
@@ -14,9 +15,10 @@ import { InstructionsModule } from './instructions/instructions.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    WordsModule,
     RegisterModule,
-    InstructionsModule
+    InstructionsModule,
+    WordsModule,
+    ResultsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ResultsComponent } from './results.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [ResultsComponent],
   imports: [
     CommonModule
   ]

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Participant } from '../participant';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ParticipantsService } from '../participants.service';
 
 @Component({
   selector: 'app-results',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultsComponent implements OnInit {
 
-  constructor() { }
+  participant: Participant;
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private participants: ParticipantsService
+  ) { }
 
   ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.participant = this.participants.get(id);
+
+    if (!this.participant) {
+      this.router.navigate(['']);
+    }
   }
 
 }

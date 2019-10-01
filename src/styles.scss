@@ -1,3 +1,6 @@
+$dark: #161616;
+$light: #bdbdbd;
+
 * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -15,8 +18,8 @@ html {
 }
 
 body {
-  background: #161616;
-  color: #bdbdbd;
+  background: $dark;
+  color: $light;
   display: table;
   padding-top: 6rem;
   margin: -6rem auto 3rem;
@@ -44,10 +47,10 @@ h1 {
 }
 
 input {
-  background: #161616;
+  background: $dark;
   border: none;
-  border-bottom: 1px solid #bdbdbd;
-  color: #bdbdbd;
+  border-bottom: 1px solid $light;
+  color: $light;
   outline: none;
   font: inherit;
   padding: .2rem .4rem;
@@ -55,21 +58,39 @@ input {
 }
 
 button {
-  background: #161616;
-  border: 1px solid #bdbdbd;
-  color: #bdbdbd;
+  background: $dark;
+  border: 1px solid $light;
+  color: $light;
   outline: none;
   font: inherit;
   padding: .2rem .4rem;
 
   &:hover,
   &:focus {
-    background: #bdbdbd;
-    color: #161616;
+    background: $light;
+    color: $dark;
   }
 
   &:active {
     background: white;
     color: black;
   }
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: .3rem .6rem;
+}
+
+th {
+  background: $light;
+  color: $dark;
+}
+
+tr:nth-child(odd) td {
+  background: lighten($dark, 10%);
 }
