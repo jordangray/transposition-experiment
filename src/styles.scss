@@ -1,3 +1,7 @@
+html {
+  font-size: 21px;
+}
+
 body {
   background: #161616;
   color: #bdbdbd;
@@ -15,4 +19,43 @@ h1 {
   font-weight: 200;
   font-size: 2rem;
   margin: 1rem;
+}
+
+.form-field {
+  margin: 1rem;
+
+  label {
+    padding: 0 .2rem 0 0;
+  }
+}
+
+input {
+  background: #161616;
+  border: none;
+  border-bottom: 1px solid #bdbdbd;
+  color: #bdbdbd;
+  outline: none;
+  font: inherit;
+  padding: .2rem .4rem;
+  text-align: left;
+}
+
+button {
+  background: #161616;
+  border: 1px solid #bdbdbd;
+  color: #bdbdbd;
+  outline: none;
+  font: inherit;
+  padding: .2rem .4rem;
+
+  &:hover,
+  &:focus {
+    background: #bdbdbd;
+    color: #161616;
+  }
+
+  &:active {
+    background: white;
+    color: black;
+  }
 }
