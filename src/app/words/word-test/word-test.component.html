@@ -1,13 +1,15 @@
 <section class="word-test">
   <div class="word-test__transposed" aria-live="polite">{{transposed}}</div>
 
-  <p class="word-test__instructions">
-    Please type the <label for="spelling">correct spelling</label> of this word.
-  </p>
+  <div class="word-test__instructions">
+    <p>Please type the <label for="spelling">correct spelling</label> of this word.</p>
+    <p>(Press <strong>Enter</strong> to skip a word.)</p>
+  </div>
 
   <input class="word-test__spelling"
     id="spelling"
     [(ngModel)]="spelling"
+    (keyup.enter)="skipWord()"
     (keyup)="testWord(spelling)"
     autofocus>
 </section>

@@ -23,17 +23,21 @@ export class WordTestComponent implements OnInit {
     this.nextWord();
   }
 
+  skipWord() {
+    this.nextWord(true);
+  }
+
   testWord(spelling) {
     if (spelling !== this.word) return;
 
     this.nextWord();
   }
 
-  nextWord() {
+  nextWord(skipped: boolean = false) {
     const now = +new Date();
 
     if (this.word) {
-      this.times[this.word] = now - this.shownAt;
+      this.times[this.word] = skipped ? -1 : now - this.shownAt;
     }
 
     this.spelling = '';
