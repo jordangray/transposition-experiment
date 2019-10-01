@@ -6,9 +6,10 @@ import { InstructionsComponent } from './instructions/instructions.component';
 
 
 const routes: Routes = [
-  { path: '', component: RegisterComponent },
-  { path: 'instructions', component: InstructionsComponent },
-  { path: 'test', component: WordTestComponent }
+  { path: '', component: RegisterComponent, data: { title: 'Register' } },
+  { path: 'instructions/:id', component: InstructionsComponent, data: { title: 'Instructions' }  },
+  { path: 'test/:id', component: WordTestComponent, data: { title: 'Test' }  },
+  { path: 'practice/:id', component: WordTestComponent, data: { practice: true, title: 'Practice' } }
 ];
 
 @NgModule({

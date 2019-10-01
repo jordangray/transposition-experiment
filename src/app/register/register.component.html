@@ -3,10 +3,10 @@
 
   <div class="form-field">
     <label for="name">Name</label>
-    <input name="name" id="name" autocomplete="off">
+    <input #name name="name" id="name" autocomplete="off">
   </div>
 
   <div class="form-field">
-    <button routerLink="/instructions">Register</button>
+    <button (click)="register(name.value)">Register</button>
   </div>
 </div>

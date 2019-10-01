@@ -1,18 +1,32 @@
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 html {
-  font-size: 21px;
+  font: 300 21px/1.3 Helvetica Neue, roboto;
 }
 
 body {
   background: #161616;
   color: #bdbdbd;
-  font-weight: 300;
-  height: 100vh;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: table;
+  padding-top: 6rem;
+  margin: -6rem auto 3rem;
+}
+
+app-root {
+  display: table-cell;
+  padding-top: 100px;
   text-align: center;
-  font-family: Helvetica Neue, roboto;
+  vertical-align: middle;
 }
 
 h1 {

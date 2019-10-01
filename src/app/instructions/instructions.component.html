@@ -1,13 +1,15 @@
 <section class="instructions">
-  <h2>Instructions</h2>
-
   <p>You will be shown several words with two letters swapped around. You need to type the correct word.</p>
 
   <p>For example, if you see the text <strong>wrod</strong>, you would type <strong>word</strong>.</p>
 
   <p>If you cannot guess the correct word, press <strong>Enter</strong> to skip it.</p>
 
-  <p>Press the button below when you are ready to begin.</p>
+  <p><button routerLink="/practice/{{participant?.id}}">Practice</button></p>
 
-  <p><button routerLink="/test">Start the test</button></p>
+  <hr/>
+
+  <p>When you are ready, you can start the test.</p>
+
+  <p><button routerLink="/test/{{participant?.id}}">Start the test</button></p>
 </section>

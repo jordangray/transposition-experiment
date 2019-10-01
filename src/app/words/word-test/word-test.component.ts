@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { WordListService } from '../word-list.service';
+import { TestWord } from './test-word';
 import * as _ from 'lodash';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ParticipantsService } from 'src/app/participants/participants.service';
+import { Participant } from 'src/app/participants/participant';
 
 @Component({
   selector: 'app-word-test',
@@ -9,17 +13,33 @@ import * as _ from 'lodash';
 })
 export class WordTestComponent implements OnInit {
 
+  participant: Participant;
+  practice: boolean;
+
+  test: TestWord;
   spelling: string;
-  word: string;
-  transposed: string;
   seen: string[] = [];
 
   shownAt: number;
-  times: { [word: string]: number } = {};
 
-  constructor(private dictionary: WordListService) { }
+  constructor(
+    private words: WordListService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private participants: ParticipantsService,
+  ) { }
 
   ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.practice = !!this.route.snapshot.data['practice'];
+
+    this.words.loadWordList(this.practice);
+    this.participant = this.participants.get(id);
+
+    if (!this.participant) {
+      this.router.navigate(['']);
+    }
+
     this.nextWord();
   }
 
@@ -28,37 +48,57 @@ export class WordTestComponent implements OnInit {
   }
 
   testWord(spelling) {
-    if (spelling !== this.word) return;
+    if (spelling !== this.test.word) return;
 
     this.nextWord();
   }
 
   nextWord(skipped: boolean = false) {
-    const now = +new Date();
-
-    if (this.word) {
-      this.times[this.word] = skipped ? -1 : now - this.shownAt;
-    }
-
+    // Clear spelling
     this.spelling = '';
 
-    this.word = this.dictionary.random(this.seen);
+    const now = +new Date();
 
-    if (!this.word) {
-      console.log(this.times);
+    if (!this.practice && this.test) {
+      this.test.timeSpent = now - this.shownAt;
+      this.test.skipped = skipped;
+
+      this.participants.addTestResult(this.participant.id, this.test);
+    }
+
+    const word = this.words.random(this.seen);
+
+    if (!word) {
+      if (this.practice) {
+        this.router.navigate(['instructions', this.participant.id]);
+        return;
+      }
+
+      console.log('Results:', this.participant);
       return;
     }
 
-    this.transposed = this.transpose(this.word);
+    const transposedAt = _.random(1, word.length - 1)
+    const transposed = this.transpose(word, transposedAt);
 
-    this.seen.push(this.word);
+    this.seen.push(word);
     this.shownAt = now;
+
+    this.test = {
+      word,
+      transposed,
+      transposedAt,
+      timeSpent: -1,
+      skipped: false
+    }
   }
 
-  transpose(word: string, swap = _.random(1, word.length - 1)) {
-    const len = word.length;
-
-    return word.slice(0, swap - 1) + word[swap] + word[swap - 1] + word.slice(swap + 1, len);
+  transpose(word: string, swap: number) {
+    return (
+      word.slice(0, swap - 1) +
+      word[swap] + word[swap - 1] +
+      word.slice(swap + 1, word.length)
+    );
   }
 
 }
