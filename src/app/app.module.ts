@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WordsModule } from './words/words.module';
 import { RegisterModule } from './register/register.module';
+import { InstructionsModule } from './instructions/instructions.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { RegisterModule } from './register/register.module';
     AppRoutingModule,
     WordsModule,
     RegisterModule,
+    InstructionsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
