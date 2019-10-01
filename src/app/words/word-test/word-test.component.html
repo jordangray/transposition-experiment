@@ -7,9 +7,11 @@
   </div>
 
   <input class="word-test__spelling"
+    #spellingInput
     id="spelling"
     [(ngModel)]="spelling"
     (keyup.enter)="skipWord()"
     (keyup)="testWord(spelling)"
-    autofocus>
+    autofocus
+    autocomplete="off">
 </section>

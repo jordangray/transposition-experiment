@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { WordListService } from '../word-list.service';
 import { TestWord } from './test-word';
 import * as _ from 'lodash';
@@ -11,7 +11,7 @@ import { Participant } from 'src/app/participants/participant';
   templateUrl: './word-test.component.html',
   styleUrls: ['./word-test.component.scss']
 })
-export class WordTestComponent implements OnInit {
+export class WordTestComponent implements OnInit, AfterViewInit {
 
   participant: Participant;
   practice: boolean;
@@ -21,6 +21,9 @@ export class WordTestComponent implements OnInit {
   seen: string[] = [];
 
   shownAt: number;
+
+  @ViewChild("spellingInput", { static: true })
+  spellingInput: ElementRef;
 
   constructor(
     private words: WordListService,
@@ -41,6 +44,10 @@ export class WordTestComponent implements OnInit {
     }
 
     this.nextWord();
+  }
+
+  ngAfterViewInit(): void {
+    this.spellingInput.nativeElement.focus();
   }
 
   skipWord() {

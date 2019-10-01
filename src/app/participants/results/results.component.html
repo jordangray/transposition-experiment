@@ -11,7 +11,7 @@
   <tr *ngFor="let result of participant.results">
     <td>{{result.word}}</td>
     <td>{{result.transposed}}</td>
-    <td>{{result.transposedAt}}</td>
+    <td>{{result.transposedAt}}, {{result.transposedAt + 1}}</td>
     <td>{{result.timeSpent}}</td>
     <td>{{result.skipped ? 'Yes' : 'No'}}</td>
   </tr>

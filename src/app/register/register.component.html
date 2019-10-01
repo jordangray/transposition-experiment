@@ -1,12 +1,14 @@
 <div class="register">
   <p>Please register to begin the experiment.</p>
 
-  <div class="form-field">
-    <label for="name">Name</label>
-    <input #name name="name" id="name" autocomplete="off">
-  </div>
+  <form>
+    <div class="form-field">
+      <label for="name">Name</label>
+      <input #name name="name" id="name" autocomplete="off">
+    </div>
 
-  <div class="form-field">
-    <button (click)="register(name.value)">Register</button>
-  </div>
+    <div class="form-field">
+      <button (click)="register(name.value)">Register</button>
+    </div>
+  </form>
 </div>
