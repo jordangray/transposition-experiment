@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DictionaryService } from '../dictionary.service';
+import { WordListService } from '../word-list.service';
 import * as _ from 'lodash';
 
 @Component({
@@ -17,7 +17,7 @@ export class WordTestComponent implements OnInit {
   shownAt: number;
   times: { [word: string]: number } = {};
 
-  constructor(private dictionary: DictionaryService) { }
+  constructor(private dictionary: WordListService) { }
 
   ngOnInit() {
     this.nextWord();

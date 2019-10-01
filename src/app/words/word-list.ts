@@ -1,4 +1,4 @@
-export const DICTIONARY: string[] = `
+export const WORD_LIST: string[] = `
 
 apothecary
 quidditch

@@ -1,15 +1,15 @@
 import * as _ from 'lodash';
 import { Injectable } from '@angular/core';
-import { DICTIONARY } from './mock-dictionary';
+import { WORD_LIST } from './word-list';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DictionaryService {
+export class WordListService {
 
   constructor() { }
 
   random(exclude: string[] = []): string {
-    return _.sample(_.difference(DICTIONARY, exclude));
+    return _.sample(_.difference(WORD_LIST, exclude));
   }
 }
