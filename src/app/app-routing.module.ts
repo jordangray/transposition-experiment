@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { WordTestComponent } from './words/word-test/word-test.component';
 import { RegisterComponent } from './register/register.component';
 import { InstructionsComponent } from './instructions/instructions.component';
-import { ResultsComponent } from './participants/results/results.component';
+import { ResultsComponent } from './results/results.component';
 
 
 const routes: Routes = [

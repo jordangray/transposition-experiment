@@ -1,3 +1,3 @@
 npm install
-ng build --output-path=dist --base-href /transposition-experiment/
-git subtree push --prefix dist origin gh-pages
+ng build --prod --output-path=dist --base-href /transposition-experiment/
+git push origin `git subtree split --prefix dist master`:gh-pages --force

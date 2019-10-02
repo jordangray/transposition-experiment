@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ResultsComponent } from './results/results.component';
 import { ParticipantsService } from './participants.service';
 
 
 
 @NgModule({
-  declarations: [ResultsComponent],
-  exports: [ParticipantsService],
+  providers: [ParticipantsService],
   imports: [
     CommonModule
   ]

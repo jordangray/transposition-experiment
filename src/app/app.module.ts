@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { WordsModule } from './words/words.module';
 import { RegisterModule } from './register/register.module';
 import { InstructionsModule } from './instructions/instructions.module';
-import { ResultsModule } from './participants/results/results.module';
+import { ResultsModule } from './results/results.module';
 
 @NgModule({
   declarations: [
