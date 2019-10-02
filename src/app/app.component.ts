@@ -34,5 +34,11 @@ export class AppComponent implements OnInit {
           return child.snapshot.data['title'] || defaultTitle;
         })
       );
+
+    const redirect = localStorage.getItem('redirectPath');
+    if (redirect) {
+      localStorage.removeItem('redirectPath');
+      this.router.navigate([redirect]);
+    }
   }
 }

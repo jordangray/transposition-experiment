@@ -1,0 +1,9 @@
+<!doctype html>
+<title>Redirecting&hellip;</title>
+<base href="/transposition-experiment/">
+<script>
+  const path = window.location.pathname.slice(1);
+  localStorage.setItem('redirectPath', path);
+  window.location.href='/';
+</script>
+<p>Redirecting&hellip;
