@@ -22,7 +22,7 @@ body {
   color: $light;
   display: table;
   padding-top: 6rem;
-  margin: -6rem auto 3rem;
+  margin: -6rem auto 1.5rem;
 }
 
 app-root {
@@ -46,15 +46,24 @@ h1 {
   }
 }
 
-input {
+input,
+select {
   background: $dark;
-  border: none;
-  border-bottom: 1px solid $light;
   color: $light;
   outline: none;
   font: inherit;
   padding: .2rem .4rem;
   text-align: left;
+  max-width: 100%;
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid $light;
+}
+
+select {
+  border: 1px solid $light;
 }
 
 button {

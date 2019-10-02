@@ -1,10 +1,10 @@
 <section class="word-test">
-  <div class="word-test__transposed" aria-live="polite">{{test.transposed}}</div>
-
   <div class="word-test__instructions">
     <p>Please type the <label for="spelling">correct spelling</label> of this word.</p>
     <p>(Press <strong>Enter</strong> to skip a word.)</p>
   </div>
+
+  <div class="word-test__transposed" aria-live="polite">{{test.transposed}}</div>
 
   <input class="word-test__spelling"
     #spellingInput
@@ -13,5 +13,6 @@
     (keyup.enter)="skipWord()"
     (keyup)="testWord(spelling)"
     autofocus
-    autocomplete="off">
+    autocomplete="off"
+    autocapitalize="none">
 </section>

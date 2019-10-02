@@ -54,8 +54,8 @@ export class WordTestComponent implements OnInit, AfterViewInit {
     this.nextWord(true);
   }
 
-  testWord(spelling) {
-    if (spelling !== this.test.word) return;
+  testWord(spelling: string) {
+    if (spelling.toLocaleLowerCase() !== this.test.word) return;
 
     this.nextWord();
   }
